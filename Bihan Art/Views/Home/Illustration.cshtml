@@ -1,0 +1,169 @@
+﻿
+@{
+    ViewData["Title"] = "Gallery";
+    var imagel1 = ViewData["imagelist1"] as List<string>;
+    var imagel2 = ViewData["imagelist2"] as List<string>;
+    var imagel3 = ViewData["imagelist3"] as List<string>;
+    var p1 = ViewData["painting1"] as List<string>;
+    var p2 = ViewData["painting2"] as List<string>;
+    var p3 = ViewData["painting3"] as List<string>;
+    int num1 = 0;
+    int num2 = 0;
+    int num3 = 0;
+    int n1 = 0;
+    int n2 = 0;
+    int n3 = 0;
+}
+
+<link rel="stylesheet" href="/path/to/dist/css/image-zoom.css" />
+<script src="/path/to/cdn/jquery.min.js"></script>
+<script src="/path/to/dist/js/image-zoom.min.js"></script>
+
+
+<div id="Gallery_header">
+    <a asp-controller="Home" asp-action="Index">
+        <img id="header_banner" src="~/lib/Content/banner.png" />
+    </a>
+    <a asp-controller="Home" asp-action="Index"><img id="header_home" src="~/lib/Content/Home.png" /></a>
+    <a asp-controller="Home" asp-action="Illustration"><img id="header_gallery" src="~/lib/Content/Gallery_Underline.png" />
+    </a>
+    <a asp-controller="Home" asp-action="About"><img id="header_about" src="~/lib/Content/About.png" /></a>
+
+</div>
+
+<h5>ILLUSTRATION</h5>
+
+
+
+<div class="row">
+    <div class="column" id="c1">
+        @foreach(var i in imagel1)
+        {
+        <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Illustration" asp-route-id="@(num1*3)"><img src=@i /></a>
+            num1++;
+        }
+    </div>
+    <div class="column">
+        @foreach (var i in imagel2)
+        {
+        <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Illustration" asp-route-id="@(1+num2*3)"><img  src=@i /></a>
+            num2++;
+        }
+    </div>
+    <div class="column" >
+        @foreach (var i in imagel3)
+        {
+        <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Illustration" asp-route-id="@(2+num3*3)"><img src=@i /></a>
+            num3++;
+        }
+    </div>
+</div>
+
+<h5>PAINTING</h5>
+<div class="row" id="r2">
+    <div class="column" id="c1">
+        @foreach (var i in p1)
+        {
+            <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Painting" asp-route-id="@(n1*3)"><img src=@i /></a>
+            n1++;
+
+        }
+    </div>
+    <div class="column">
+        @foreach (var i in p2)
+        {
+            <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Painting" asp-route-id="@(1+n2*3)"><img src=@i /></a>
+            n2++;
+
+        }
+    </div>
+    <div class="column">
+        @foreach (var i in p3)
+        {
+            <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Painting" asp-route-id="@(2+n3*3)"><img src=@i /></a>
+            n3++;
+        }
+    </div>
+
+
+</div>
+
+
+<style>
+    h5 {
+        text-align: center;
+        font-family: adobe-garamond-pro;
+    }
+
+    #Gallery_header {
+        margin-top: 5px;
+        margin-left: 15%;
+        padding-bottom:20px;
+    }
+
+
+    #header_about {
+        width: 5%;
+        margin-top: 1.8%;
+        margin-left: 5%
+    }
+
+    #header_banner {
+        width: 20%;
+        float: left;
+    }
+
+    #header_home {
+        width: 4%;
+        margin-top: 2%;
+        margin-left: 32%;
+    }
+
+    #header_gallery {
+        width: 6%;
+        margin-top: 2.3%;
+        margin-left: 5.3%;
+    }
+
+
+  
+    body {
+        background-color: #fbfceb;
+    }
+
+    .row{
+        margin:auto;
+        width:95%;
+        margin-bottom:50px;
+    }
+    #r2{
+        margin-bottom:100px;
+    }
+    .column img {
+        transition: transform 0.25s ease;
+    }
+
+    .column img:hover {
+        -webkit-transform: scale(1.1); /* or some other value */
+        transform: scale(1.1);
+    }
+
+
+    .column {
+        width: 33.3%;
+        padding: 0.1%;
+        height: auto;
+    }
+
+
+        .column img {
+            width:100%;
+            padding-bottom:0.5%;
+            vertical-align: middle;
+        }
+
+
+    
+</style>
+
+

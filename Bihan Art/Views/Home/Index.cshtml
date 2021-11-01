@@ -1,0 +1,207 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "";
+    var imageURL = ViewData["imageURL"] as List<string>;
+    var imagesize = ViewData["imageSize"] as List<float>;
+    var imagelist = ViewData["imagelist"] as List<string>;
+    int n = 0 ;
+}
+
+<head>
+    <title>@ViewData["Title"] - Bihan_Art</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<img id="banner" src="~/lib/Content/banner.png" />
+
+<div class="row">
+    <a asp-controller="Home" asp-action="Index"><img id="home-button" src="~/lib/Content/Home_on_focus.png" /></a>
+    <a asp-controller="Home" asp-action="Illustration"><img id="gallery-button" src="~/lib/Content/Gallery.png" /> </a>
+    <a asp-controller="Home" asp-action="About"><img id="about-button" src="~/lib/Content/About.png" /></a>
+</div>
+<div id="main-content">
+    <div class="w3-content w3-display-container">
+        @foreach (var i in imagelist)
+        {
+            <a asp-controller="Home" asp-action="MaxmizeImage" asp-route-imageurl="@i" asp-route-page="Index" asp-route-id="@n"><img class="mySlides fade" src="@i"></a>
+            n++;
+        }
+        
+
+        <button class="arrow w3-display-left" id="left_arrow" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="arrow w3-display-right" id="right_arrow" onclick="plusDivs(1)">&#10095;</button>
+    </div>
+</div>
+<div id="blank"></div>
+<br />
+<br />
+<footer class="footer text-muted" id="footer-element">
+
+    <div class="container">
+        <div id="copy_right">
+            &copy; 2021 - Bihan Liao. All rights reserved.
+        </div>
+        <div id="contact">
+            <a href="https://www.instagram.com/foufoupiu/?hl=en" target="_blank"><i class="fab fa-instagram"></i> foufoupiu~</a>  &nbsp; || &nbsp;  <a href="mailto:mulanxing@gmail.com" target="_blank"><i class="far fa-envelope"></i> mulanxing@gmail.com</a>
+        </div>
+
+    </div>
+</footer>
+
+
+<script>
+var slideIndex = 0;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > x.length) {slideIndex = 1}
+  x[slideIndex-1].style.display = "block";
+  setTimeout(carousel, 5000); // Change image every 10 seconds
+}
+</script>
+
+
+<style>
+    .mySlides {
+        display: none;
+        width:70%; 
+        margin-left: auto;
+        margin-right: auto;
+    }
+    body {
+        background-color: #fbfceb;
+    }
+
+    #banner {
+        width: 30%;
+        height: auto;
+        margin-left: 35%;
+        margin-top: 0%;
+    }
+    #blank{
+        height:100px;
+    }
+    #home-button {
+        margin-left: 28.5%;
+        margin-top:1%;
+        height: 7%;
+    }
+    .arrow {
+        color: #b3b3b3;
+        font-size: 20px;
+        background-color: #fbfceb;
+        border:none;
+    }
+        .arrow:hover {
+            color: #808080;
+            font-size: 20px;
+            background-color: #fbfceb;
+            border: none;
+        }
+        .arrow:focus {
+            outline: 0px;
+        }
+    #gallery-button {
+        margin-left: 10%;
+        height: 5%;
+    }
+
+    #about-button {
+        margin-left: 10%;
+        height: 5%;
+    }
+
+    #footer-element {
+        margin-top: 20px;
+    }
+    .container {
+        text-align: center;
+        padding: 3px;
+        background-color: #fbfceb;
+        color: #6c757d !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    #copy_right {
+        margin-top: 25px;
+    }
+
+    #contact {
+        margin-top: -83px;
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: #6c757d !important;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+        }
+
+
+    #banner-placeholder {
+        margin-top: 9%;
+        margin-left: 40%;
+    }
+
+
+
+
+    #main-content {
+        width: 60%;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    #main-content-placeholder {
+        margin-top: 29%;
+        margin-left: 40%;
+    }
+
+    .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 3s;
+    animation-name: fade;
+    animation-duration: 3s;
+    }
+
+
+    @@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+    }
+
+    @@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+    }
+
+</style>

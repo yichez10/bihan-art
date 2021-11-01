@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bihan_Art</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+</head>
+<body>
+    
+   
+            @RenderBody()
+
+
+    <footer class="footer text-muted">
+
+        <div class="container">
+            <div id="copy_right">
+                &copy; 2021 - Bihan Liao.
+                All rights reserved.
+            </div>
+            <div id="contact" >
+                <a class="footer_link"href="mailto:mulanxing@gmail.com" target="_blank"><i class="far fa-envelope"></i> mulanxing@gmail.com</a> &nbsp; || &nbsp;  <a class ="footer_link"href="https://www.instagram.com/foufoupiu/?hl=en" target="_blank"><i class="fab fa-instagram"></i> foufoupiu</a>
+            </div>
+
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+<style>
+    .border-top {
+        background-color: #fbfceb;
+    }
+    .container {
+        text-align: center;
+        padding: 3px;
+    }
+    #copy_right {
+        margin-top: 25px;
+    }
+    #contact {
+        margin-top: -83px;
+        margin-bottom: 20px;
+    }
+    .footer_link{
+        color: #6c757d !important;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+</style>

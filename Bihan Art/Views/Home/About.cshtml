@@ -1,0 +1,134 @@
+﻿@{ 
+    ViewData["Title"] = "About";
+}
+
+<head>
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap" rel="stylesheet">
+</head>
+
+<div id="about_header">
+    <a asp-controller="Home" asp-action="Index">
+        <img id="header_banner" src="~/lib/Content/banner.png" />
+    </a>
+    <a asp-controller="Home" asp-action="Index"><img id="header_home" src="~/lib/Content/Home.png" /></a>
+    <a asp-controller="Home" asp-action="Illustration"><img id="header_gallery" src="~/lib/Content/Gallery.png" /></a>
+    <a asp-controller="Home" asp-action="About"><img id="header_about" src="~/lib/Content/About_Underline.png" /></a>
+
+</div>
+
+<div class="post-container" id="container">
+    
+    <table id="about_table">
+        <tr>
+            <td id="photo">
+                <div class="post-thumb"><img src="@Url.Content("~/lib/Content/bibipho.JPG")" /></div>
+            </td>
+            <td id="bio">
+                <div class="post-content">
+                    <p class="post-title">Bihan Liao</p>
+                    <p>
+                        Bihan is an illustrator based in New York who’s currently studying at <a href="https://sva.edu/" id="SVA-link" target="_blank"><u> School of Visual Arts </u></a>.
+                        She is specialized in realistic portrait painting and continuously learns and introduces new media into her work.
+                    <p><a class="about_link" href="mailto:mulanxing@gmail.com" target="_blank"><i class="fas fa-envelope"></i>&nbsp;mulanxing@gmail.com</a></p>
+                    <p><a class="about_link" href="https://www.instagram.com/foufoupiu/?hl=en" target="_blank"><i class="fab fa-instagram-square"></i>&nbsp;foufoupiu</a></p>
+                    <p><a class="about_link" href="https://www.linkedin.com/in/%E7%A2%A7%E6%B6%B5-%E5%BB%96-507955207/" target="_blank"><i class="fab fa-linkedin-in"></i>&nbsp;廖碧涵</a></p>
+                    <p><i class="fas fa-phone"></i>&nbsp;(347)326-2418</p>
+                    <p><i class="fab fa-weixin"></i>&nbsp;x7phan</p>
+
+                    <p><i class="fas fa-download"></i>&nbsp;Resume</p>
+                    <p><i class="fas fa-download"></i>&nbsp;简历</p>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+    <br /><br />
+
+</div>
+
+<style>
+
+    .about_link,.about_link:hover{
+        color:black;
+        text-decoration:none;
+    }
+
+    body {
+        background-color: #fbfceb;
+    }
+    p {
+        font-family: 'New Tegomin', serif;
+        font-size: 1rem;
+    }
+    #about_table {
+        display: block;
+        margin-top: 5%;
+        border-spacing: 30px;
+        border-collapse: separate;
+        margin-bottom:50px;
+    }
+    #container{
+        width:80%;
+        margin:auto;
+    }
+    #photo {
+        width:45%;
+    }
+    #bio{
+        padding-left:5%;
+    }
+    #about_header {
+        
+        margin-top: 5px;
+        margin-left: 15%;
+    }
+    
+
+    #header_about {
+        width: 5.5%;
+        margin-top: 1.8%;
+        margin-left: 5%
+    }
+    #header_banner {
+
+        width: 20%;
+        float:left;
+    }
+    #header_home {
+        width: 4%;
+        margin-top:2%;
+        margin-left: 32%;
+    }
+    #header_gallery {
+        width: 6%;
+        margin-top: 1.7%;
+        margin-left: 5.3%;
+    }
+    #SVA-link{
+        color:black;
+    }
+    .post-thumb {
+    }
+
+        .post-thumb img {
+            width:100%;
+            height: auto;
+        }
+
+    .post-content {
+        color: black;
+        background-color: transparent;
+        text-decoration: none;
+        font-size: larger;
+        display: block;
+    }
+
+    .post-title {
+        display:block;
+        font-size: 150%;
+    }
+
+   
+</style>

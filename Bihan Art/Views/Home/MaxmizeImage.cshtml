@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewData["Title"] = "MaxmizeImage";
+    Layout = "";
+    var imglist = ViewData["page"] as List<string>;
+    int n = 0;
+    string temp = ViewData["index"].ToString();
+    int tmp = Int32.Parse(temp);
+
+}
+<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<a id="btn" asp-controller="Home" asp-action="@ViewData["return"]"><i class="far fa-times-circle fa-lg" id="back"></i> </a>
+<head>
+</head>
+
+
+<div id="container">
+    <div id="max_picture ">
+        @foreach (var i in imglist)
+        {
+        <img class="mySlides" src="@i" style="display:none" />
+        }
+
+     <button class="arrow w3-display-left" id="left_arrow" onclick="plusDivs(-1)">&#10094;</button>
+     <button class="arrow w3-display-right" id="right_arrow" onclick="plusDivs(1)">&#10095;</button>
+
+    </div>
+
+
+    <div id="selector_menu">
+            @foreach (var i in imglist)
+            {
+                <img class="w3-opacity w3-hover-opacity-off" id="selector" src="@i" onclick="currentDiv(@n)">
+                n++;
+            }
+    </div>
+
+</div>
+
+<script>
+currentDiv(@tmp);
+    
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
+  x[slideIndex].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+}
+
+
+</script>
+
+<style>
+    #max_picture  {
+        top: 0;
+        position: absolute;
+        height: 70%;
+        
+        
+    }
+    .mySlides {
+        margin-top: 1.5%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 90%;
+    }
+    #container{
+        margin:auto;
+        width:80%;
+
+    }
+
+
+    #selector_menu {
+        bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 2%;
+        height: 25%;
+        width: 60%;
+        background-color: #fff;
+        overflow: auto;
+        white-space: nowrap;
+        background-color: #fbfceb;
+        margin-bottom:2%;
+
+    }
+    #selector{
+        height:100%;
+    }
+
+    body {
+        background-color: #fbfceb;
+    }
+
+    #btn {
+        margin-right: 2%;
+        float: right;
+    }
+
+    #back {
+        color: #000000;
+    }
+
+ 
+</style>
